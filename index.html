@@ -10,21 +10,50 @@
 
 <body>
 
-    <section class="hero is-dark">
+    <section class="hero hero is-dark is-bold p-2">
         <div class="hero-body">
-            <div class="container">
-            <h1 class="title">
+            <div class="container pt-0">
+            <h1 class="title has-text-weight-bold">
                 Covid Cases Worldwide
             </h1>
-            <h2 class="subtitle">
-                Search countries for their covid related data.
+            <h2 class="subtitle has-text-weight-semibold is-size-4">
+                Have you ever wondered how poorly your country handled the Covid-19 pandemic compared other countries?
+                <br> Search a country in the search bar for the latest covid related stats.
             </h2>
             </div>
         </div>
+        <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">New Cases</p>
+                <p class="title" id="newCases">3,456</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Total Cases</p>
+                <p class="title" id="totalCases">123</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">New Deaths</p>
+                <p class="title" id="newDeaths">456K</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Total Deaths</p>
+                <p class="title" id="totalDeaths">789</p>
+              </div>
+            </div>
+          </nav>
     </section>
 
-    <section class="info">
+    
 
+    <section class="info">
+        <div class="container"></div>
     </section>
 
     <section class="search-history">
@@ -41,7 +70,7 @@
     </section>
     </div>
 
-    
+<script src="assets/js/script.js"></script>
 </body>
 
 
