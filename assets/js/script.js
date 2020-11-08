@@ -48,14 +48,17 @@ $.getJSON(apiSummary, function (data) {
 });
 
 
-// var selectedCountry = document.getElementById("search");
-// var userValue = selectedCountry.options[selectedCountry.selectedIndex].text;
 
-// $.ajax({
-//   type: "GET",
-//   url: "https://api.covid19api.com/country/" + userValue + "/status/confirmed"
-//   dataType: "json",
-//   success: function(data) {
-//     console.log("data form api call is : " , data);
-//   }
-// })
+$("#search").change(function(){
+  var selectedCountry = document.getElementById("search");
+  var userValue = selectedCountry.options[selectedCountry.selectedIndex].text;
+
+  $.ajax({
+    type: "GET",
+    url: "https://api.covid19api.com/country/" + userValue + "/status/confirmed",
+    dataType: "json",
+    success: function(data) {
+      console.log("data form api call is : " , data);
+    }
+  })
+});
