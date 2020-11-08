@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Covid Cases Worldwide</title>
+    <title>COVID Cases Worldwide</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
@@ -63,8 +63,6 @@
 
     <div class="container p-4">
         <div class="tile is-ancestor">
-
-
             <div class="tile is-ancestor">
                 <div class="tile is-vertical is-8">
                     <div class="tile">
@@ -78,10 +76,46 @@
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child notification is-dark">
-                            <p class="title">COVID Stats</p>
-                            <p class="subtitle">COVID stats by country go here.</p>
+                            <p class="title">COVID Stats by Country</p>
+                            <p class="subtitle">COVID stats by country are shown below.</p>
                             <div class="content">
                                 <!-- Content -->
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">New Cases by Country</p>
+                                        <p class="title" id="newCasesByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Confirmed by Country</p>
+                                        <p class="title" id="totalConfirmedByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">New Deaths by Country</p>
+                                        <p class="title" id="newDeathsByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Deaths by Country</p>
+                                        <p class="title" id="totalDeathsByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">New Recovered by Country</p>
+                                        <p class="title" id="newRecoveredByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Recovered by Country</p>
+                                        <p class="title" id="totalRecoveredByCountry">0</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
                     </div>
