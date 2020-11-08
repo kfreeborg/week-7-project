@@ -17,10 +17,10 @@ function summaryData() {
 }
 
 function displaySummary(json) {
-  newCasesEl.textContent = json.Global.NewConfirmed;
-  totalCasesEl.textContent = json.Global.TotalConfirmed;
-  newDeathsEl.textContent = json.Global.NewDeaths;
-  totalDeathsEl.textContent = json.Global.TotalDeaths;
+    newCasesEl.textContent = json.Global.NewConfirmed.toLocaleString();
+    totalCasesEl.textContent = json.Global.TotalConfirmed.toLocaleString();
+    newDeathsEl.textContent = json.Global.NewDeaths.toLocaleString();
+    totalDeathsEl.textContent = json.Global.TotalDeaths.toLocaleString();
 }
 
 summaryData();
