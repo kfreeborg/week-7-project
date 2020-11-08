@@ -17,10 +17,10 @@ function summaryData() {
 }
 
 function displaySummary(json) {
-  newCasesEl.textContent = json.Global.NewConfirmed;
-  totalCasesEl.textContent = json.Global.TotalConfirmed;
-  newDeathsEl.textContent = json.Global.NewDeaths;
-  totalDeathsEl.textContent = json.Global.TotalDeaths;
+  newCasesEl.textContent = json.Global.NewConfirmed.toLocaleString();
+  totalCasesEl.textContent = json.Global.TotalConfirmed.toLocaleString();
+  newDeathsEl.textContent = json.Global.NewDeaths.toLocaleString();
+  totalDeathsEl.textContent = json.Global.TotalDeaths.toLocaleString();
 }
 
 summaryData();
@@ -46,3 +46,16 @@ $.getJSON(apiSummary, function (data) {
     dropdown.append($("<option></option>").text(entry.Country));
   })
 });
+
+
+// var selectedCountry = document.getElementById("search");
+// var userValue = selectedCountry.options[selectedCountry.selectedIndex].text;
+
+// $.ajax({
+//   type: "GET",
+//   url: "https://api.covid19api.com/country/" + userValue + "/status/confirmed"
+//   dataType: "json",
+//   success: function(data) {
+//     console.log("data form api call is : " , data);
+//   }
+// })
