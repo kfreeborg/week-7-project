@@ -1,3 +1,7 @@
 #map {
-            height: 100%;
-        }
+    height: 100%;
+}
+
+.marginBottom5 {
+    margin-bottom: 5%;
+}
