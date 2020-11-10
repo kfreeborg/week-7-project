@@ -27,14 +27,12 @@
                     countries?
                     <br> Search a country in the search bar for the latest COVID related stats.
                 </h2>
-
                 <div class="select marginBottom25">
                     <select onchange="codeAddress()" id="search">
                         <option id="country"></option>
                     </select>
                 </div>
             </div>
-
             <nav class="level p-2">
                 <div class="level-item has-text-centered">
                     <div>
@@ -68,20 +66,11 @@
         <div class="tile is-ancestor">
             <div class="tile is-ancestor">
                 <div class="tile is-vertical is-8">
-                    <div class="tile">
-
-                        <div class="tile is-parent">
-
-                            <div id="map" class="tile is-child image is-4by3 notification is-dark">
-
-                            </div>
-                        </div>
-                    </div>
                     <div class="tile is-parent">
                         <article class="tile is-child notification is-dark">
-                            <p class="title">COVID Stats by Country</p>
+                            <p class="title has-text-centered padding15px">COVID Stats by Country</p>
                             <!-- Display country selected -->
-                            <p class="subtitle has-text-centered" id="userInput">Select a country in the drop down menu.
+                            <p class="subtitle has-text-centered" id="userInput">*Select a country in the drop down menu.*
                             </p>
                             <div class="content flexContainer">
                                 <!-- Content -->
@@ -125,6 +114,15 @@
                                 </div>
                             </div>
                         </article>
+                    </div>
+                    <div class="tile">
+
+                        <div class="tile is-parent">
+
+                            <div id="map" class="tile is-child image is-4by3 notification is-dark">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="tile is-parent">
