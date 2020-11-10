@@ -49,12 +49,13 @@ $.getJSON(apiSummary, function (data) {
 $("#search").change(function(){
   var countryData = $(document.getElementById("search").selectedOptions[0]).data();
   
+  document.getElementById("userInput").textContent = countryData.Country;
   document.getElementById("newCasesByCountry").textContent = countryData.NewConfirmed.toLocaleString();
-  document.getElementById("totalConfirmedByCountry").textContent = countryData.TotalConfirmed.toLocaleString();
-  document.getElementById("newDeathsByCountry").textContent = countryData.NewDeaths.toLocaleString();
-  document.getElementById("totalDeathsByCountry").textContent = countryData.TotalDeaths.toLocaleString();
   document.getElementById("newRecoveredByCountry").textContent = countryData.NewRecovered.toLocaleString();
+  document.getElementById("newDeathsByCountry").textContent = countryData.NewDeaths.toLocaleString();
+  document.getElementById("totalConfirmedByCountry").textContent = countryData.TotalConfirmed.toLocaleString();
   document.getElementById("totalRecoveredByCountry").textContent = countryData.TotalRecovered.toLocaleString();
+  document.getElementById("totalDeathsByCountry").textContent = countryData.TotalDeaths.toLocaleString();
 
   $.ajax({
     type: "GET",

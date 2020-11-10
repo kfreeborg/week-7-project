@@ -2,6 +2,19 @@
     height: 100%;
 }
 
-.marginBottom5 {
-    margin-bottom: 5%;
+.marginTop10 {
+    margin-top: 10%;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#userInput {
+
 }
