@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>COVID Cases Worldwide</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="assets\css\style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuQ0idwqB4eM4Yk8_1oQuPUqwxKXgZ22k&callback=initMap&libraries=&v=weekly"
@@ -19,14 +20,15 @@
         <div class="hero-body">
             <div class="container pt-0 ">
                 <h1 class="title has-text-weight-bold">
-                    Covid Cases Worldwide
+                    COVID-19 Cases Worldwide
                 </h1>
                 <h2 class="subtitle has-text-weight-semibold is-size-4">
                     Have you ever wondered how poorly your country handled the COVID-19 pandemic compared other
                     countries?
                     <br> Search a country in the search bar for the latest COVID related stats.
                 </h2>
-                <div class="select">
+
+                <div class="select marginBottom25">
                     <select onchange="codeAddress()" id="search">
                         <option id="country"></option>
                     </select>
@@ -78,43 +80,47 @@
                     <div class="tile is-parent">
                         <article class="tile is-child notification is-dark">
                             <p class="title">COVID Stats by Country</p>
-                            <p class="subtitle">COVID stats by country are shown below.</p>
-                            <div class="content">
+                            <!-- Display country selected -->
+                            <p class="subtitle has-text-centered" id="userInput">Select a country in the drop down menu.
+                            </p>
+                            <div class="content flexContainer">
                                 <!-- Content -->
                                 <div class="level-item has-text-centered">
                                     <div>
-                                        <p class="heading">New Cases by Country</p>
+                                        <p class="heading">New Cases</p>
                                         <p class="title" id="newCasesByCountry">0</p>
                                     </div>
                                 </div>
                                 <div class="level-item has-text-centered">
                                     <div>
-                                        <p class="heading">Total Confirmed by Country</p>
-                                        <p class="title" id="totalConfirmedByCountry">0</p>
-                                    </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                    <div>
-                                        <p class="heading">New Deaths by Country</p>
-                                        <p class="title" id="newDeathsByCountry">0</p>
-                                    </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                    <div>
-                                        <p class="heading">Total Deaths by Country</p>
-                                        <p class="title" id="totalDeathsByCountry">0</p>
-                                    </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                    <div>
-                                        <p class="heading">New Recovered by Country</p>
+                                        <p class="heading">New Recovered</p>
                                         <p class="title" id="newRecoveredByCountry">0</p>
                                     </div>
                                 </div>
                                 <div class="level-item has-text-centered">
                                     <div>
-                                        <p class="heading">Total Recovered by Country</p>
+                                        <p class="heading">New Deaths</p>
+                                        <p class="title" id="newDeathsByCountry">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content flexContainer">
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Cases</p>
+                                        <p class="title" id="totalConfirmedByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Recovered</p>
                                         <p class="title" id="totalRecoveredByCountry">0</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">Total Deaths</p>
+                                        <p class="title" id="totalDeathsByCountry">0</p>
                                     </div>
                                 </div>
                             </div>
