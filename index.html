@@ -10,6 +10,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuQ0idwqB4eM4Yk8_1oQuPUqwxKXgZ22k&callback=initMap&libraries=&v=weekly"
         defer></script>
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                     <br> Search a country in the search bar for the latest COVID related stats.
                 </h2>
                 <div class="select">
-                    <select id="search">
+                    <select onchange="codeAddress()" id="search">
                         <option id="country"></option>
                     </select>
                 </div>
