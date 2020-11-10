@@ -3,6 +3,7 @@ var totalCasesEl = document.getElementById("totalCases");
 var newDeathsEl = document.getElementById("newDeaths");
 var totalDeathsEl = document.getElementById("totalDeaths");
 var selectCountryEl = document.getElementById("country");
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 var apiSummary = "https://api.covid19api.com/summary"
 
@@ -54,12 +55,16 @@ $("#search").change(function () {
     url: "https://api.covid19api.com/country/" + countryData.Country + "?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z",
     dataType: "json",
     success: function (data) {
-      console.log(data);
+      // console.log(data);
     }
   })
 
   var zoomCountry = $(document.getElementById("search").selectedOptions[0]).data().Country;
-  console.log(zoomCountry);
+
+  // add local storage here
+  searchHistory.push(zoomCountry);
+  localStorage.setItem("country", JSON.stringify(searchHistory));
+  // console.log(zoomCountry);
   initMap();
 
 });
@@ -80,7 +85,7 @@ function initMap() {
 function codeAddress() {
   var address = document.getElementById('search').value;
   var geocoder = new google.maps.Geocoder();
-  console.log(address);
+  // console.log(address);
   geocoder.geocode({ 'address': address }, function (results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
