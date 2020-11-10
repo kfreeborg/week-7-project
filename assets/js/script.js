@@ -42,6 +42,22 @@ $("#search").change(function () {
   var countryData = $(document.getElementById("search").selectedOptions[0]).data();
 
   console.log(countryData);
+  document.getElementById("newCasesByCountry").textContent = countryData.NewConfirmed;
+  document.getElementById("totalConfirmedByCountry").textContent = countryData.TotalConfirmed;
+  document.getElementById("newDeathsByCountry").textContent = countryData.NewDeaths;
+  document.getElementById("totalDeathsByCountry").textContent = countryData.TotalDeaths;
+  document.getElementById("newRecoveredByCountry").textContent = countryData.NewRecovered;
+  document.getElementById("totalRecoveredByCountry").textContent = countryData.TotalRecovered;
+
+
+  $.ajax({
+    type: "GET",
+    url: "https://api.covid19api.com/country/" + countryData.Country + "?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+    }
+  })
 
   var zoomCountry = $(document.getElementById("search").selectedOptions[0]).data().Country;
   console.log(zoomCountry);
