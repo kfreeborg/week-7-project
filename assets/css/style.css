@@ -1,13 +1,13 @@
-#map {
-    height: 100%;
-}
-
 .marginBottom25 {
     margin-bottom: 2.5%;
 }
 
 .padding15px {
     padding: 15px;
+}
+
+#map {
+    height: 100%;
 }
 
 .inlineBlock {
@@ -20,5 +20,9 @@
 }
 
 #userInput {
+    text-decoration: underline;
+}
 
+@media screen and (max-width: 575px) {
+    
 }
