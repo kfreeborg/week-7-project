@@ -1,17 +1,17 @@
-#map {
-    height: 100%;
-}
-
 .marginBottom25 {
     margin-bottom: 2.5%;
+}
+
+.marginBottom10 {
+    margin-bottom: 10%;
 }
 
 .padding15px {
     padding: 15px;
 }
 
-.inlineBlock {
-    display: inline-block;
+#map {
+    height: 100%;
 }
 
 .flexContainer {
@@ -20,5 +20,6 @@
 }
 
 #userInput {
-
+    text-decoration: underline;
 }
+
