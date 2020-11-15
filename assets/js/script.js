@@ -4,7 +4,7 @@ var newDeathsEl = document.getElementById("newDeaths");
 var totalDeathsEl = document.getElementById("totalDeaths");
 var selectCountryEl = document.getElementById("country");
 var historyEl = document.querySelector("#search-history");
-var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+var searchHistory = JSON.parse(localStorage.getItem("country")) || [];
 
 var apiSummary = "https://api.covid19api.com/summary"
 
@@ -36,12 +36,32 @@ dropdown.prop("selectedIndex", 0);
 
 $.getJSON(apiSummary, function (data) {
   $.each(data.Countries, function (key, entry) {
-    dropdown.append($("<option></option>").text(entry.Country).data(entry));
+    dropdown.append($("<option></option>").text(entry.Country).val(entry.Country.replaceAll(" ", "-")).data(entry));
   })
+  renderSearch();
+  initMap();
 });
 
 $("#search").change(function () {
-  var countryData = $(document.getElementById("search").selectedOptions[0]).data();
+  codeAddress(this.value);
+  var countryData = $(this.selectedOptions[0]).data();
+
+  renderCountryData(countryData);
+  // add local storage here
+  searchHistory.push(countryData.Country);
+  searchHistory = Array.from(new Set(searchHistory)).sort();
+  localStorage.setItem("country", JSON.stringify(searchHistory));
+  renderSearch();
+});
+
+$("#search-history").change(function () {
+  codeAddress(this.value);
+  var countryData = $(this.selectedOptions[0]).data();
+  console.log(this.selectedOptions);
+  renderCountryData(countryData);
+});
+
+function renderCountryData(countryData) {
 
   document.getElementById("userInput").textContent = countryData.Country;
   document.getElementById("newCasesByCountry").textContent = countryData.NewConfirmed.toLocaleString();
@@ -50,27 +70,7 @@ $("#search").change(function () {
   document.getElementById("totalConfirmedByCountry").textContent = countryData.TotalConfirmed.toLocaleString();
   document.getElementById("totalRecoveredByCountry").textContent = countryData.TotalRecovered.toLocaleString();
   document.getElementById("totalDeathsByCountry").textContent = countryData.TotalDeaths.toLocaleString();
-
-  $.ajax({
-    type: "GET",
-    url: "https://api.covid19api.com/country/" + countryData.Country + "?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z",
-    dataType: "json",
-    success: function (data) {
-      // console.log(data);
-    }
-  })
-
-  var zoomCountry = $(document.getElementById("search").selectedOptions[0]).data().Country;
-
-  // add local storage here
-  searchHistory.push(zoomCountry);
-  localStorage.setItem("country", JSON.stringify(searchHistory));
-
-  initMap();
-  renderSearch();
-
-});
-
+};
 
 function renderSearch() {
   let dropdownHistory = $("#search-history");
@@ -81,14 +81,11 @@ function renderSearch() {
   dropdownHistory.prop("selectedIndex", 0);
 
   for (var i = 0; i < searchHistory.length; i++) {
-    dropdownHistory.append($("<option></option>").text(searchHistory[i]));
+    const data = dropdown.find("option[value=" + searchHistory[i].replaceAll(" ", "-") + "]").data()
+    console.log(data)
+    dropdownHistory.append($("<option></option>").text(searchHistory[i]).data(data));
   }
-  //change();
-}
-
-renderSearch();
-
-
+};
 
 let map;
 var geocoder;
@@ -101,12 +98,10 @@ function initMap() {
     center: latlng
   }
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-}
+};
 
-function codeAddress() {
-  var address = document.getElementById('search').value;
+function codeAddress(address) {
   var geocoder = new google.maps.Geocoder();
-  // console.log(address);
   geocoder.geocode({ 'address': address }, function (results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
@@ -118,4 +113,4 @@ function codeAddress() {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-}
+};
