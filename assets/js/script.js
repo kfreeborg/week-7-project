@@ -3,6 +3,7 @@ var totalCasesEl = document.getElementById("totalCases");
 var newDeathsEl = document.getElementById("newDeaths");
 var totalDeathsEl = document.getElementById("totalDeaths");
 var selectCountryEl = document.getElementById("country");
+var historyEl = document.querySelector("#search-history");
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 var apiSummary = "https://api.covid19api.com/summary"
@@ -64,10 +65,30 @@ $("#search").change(function () {
   // add local storage here
   searchHistory.push(zoomCountry);
   localStorage.setItem("country", JSON.stringify(searchHistory));
-  // console.log(zoomCountry);
+
   initMap();
+  renderSearch();
 
 });
+
+
+function renderSearch() {
+  let dropdownHistory = $("#search-history");
+
+  dropdownHistory.empty();
+
+  dropdownHistory.append("<option selected='true' disabled>Recent Searches</option>");
+  dropdownHistory.prop("selectedIndex", 0);
+
+  for (var i = 0; i < searchHistory.length; i++) {
+    dropdownHistory.append($("<option></option>").text(searchHistory[i]));
+  }
+  //change();
+}
+
+renderSearch();
+
+
 
 let map;
 var geocoder;
